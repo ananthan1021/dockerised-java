@@ -13,7 +13,9 @@ pipeline {
         }
         stage('Docker Build') {
             steps {
-                docker.build("my-image:${env.BUILD_ID}")
+               script {
+                 docker.build registry + ":$BUILD_NUMBER"   
+               }    
             }
         }
     }
