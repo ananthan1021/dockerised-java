@@ -12,8 +12,8 @@ pipeline {
             }
         }
         stage('Upload artifacts'){
-                                  steps{
-           rtUpload (
+                   steps{
+    rtUpload (
                      serverId: "Artifactory",
                      spec:
                      """{
