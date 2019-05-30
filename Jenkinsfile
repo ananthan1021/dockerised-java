@@ -11,10 +11,23 @@ pipeline {
                 sh 'mvn -B -DskipTests clean package'
             }
         }
-        stage('Docker Build') {
-            steps {
-               script {
-                 docker.build("my-image:${env.BUILD_ID}")   
+        stage('Upload artifacts'){
+                                  steps{
+           rtUpload (
+                     serverId: "Artifactory",
+                     spec:
+                     """{
+                     "files": [
+                     {
+                     "pattern": "/var/lib/jenkins/workspace/artifactory/target/*.war",
+                     "target": "example-repo-local"
+                     }
+                     ]
+                     }"""
+)
+                                  }
+             
+                       } 
                }    
             }
         }
