@@ -1,5 +1,7 @@
 pipeline {
     agent any
+    parameters {
+		  choice( choices: 'dev\nstg\nprod', description: 'Environment name', name: 'envName')
     stages {
         stage('SCM code Checkout') {
             steps {
@@ -19,7 +21,7 @@ pipeline {
                                           """{
                                           "files": [
                                           {
-                                          "pattern": "target/${*.war"},
+                                          "pattern": "target/*.war",
                                           "target": "pipeline"
                                           }
                                           ]
