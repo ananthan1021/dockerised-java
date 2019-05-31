@@ -20,7 +20,6 @@ pipeline {
                                           "files": [
                                           {
                                           "pattern": "target/*.war",
-                                          "recursive"": "yes"
                                           "target": "pipeline"
                                           }
                                           ]
