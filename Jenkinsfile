@@ -20,6 +20,7 @@ pipeline {
                                           "files": [
                                           {
                                           "pattern": "target/*.war",
+                                          "buildNumber": '$'
                                           "target": "pipeline"
                                           }
                                           ]
