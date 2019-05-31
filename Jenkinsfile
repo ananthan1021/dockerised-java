@@ -11,6 +11,23 @@ pipeline {
                 sh 'mvn -B -DskipTests clean package'
             }
         }
+        stage('Upload artifacts'){
+                                  steps{
+                                    rtUpload (
+                                          serverId: "Artifactory",
+                                          spec:
+                                          """{
+                                          "files": [
+                                          {
+                                          "pattern": "target/*.war",
+                                          "target": "example-repo-local"
+                                          }
+                                          ]
+                                          }"""
+                                     )
+                                  }
+             
+                       }
         stage('Docker Build') {
             steps {
                script {
