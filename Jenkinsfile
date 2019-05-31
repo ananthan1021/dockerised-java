@@ -19,7 +19,7 @@ pipeline {
                                           """{
                                           "files": [
                                           {
-                                          "pattern": "target/*.war",
+                                          "pattern": "$(target/*.war"},
                                           "target": "pipeline"
                                           }
                                           ]
