@@ -1,7 +1,5 @@
 pipeline {
     agent any
-    parameters {
-		  choice( choices: 'dev\nstg\nprod', description: 'Environment name', name: 'envName')
     stages {
         stage('SCM code Checkout') {
             steps {
