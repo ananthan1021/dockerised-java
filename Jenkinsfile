@@ -20,7 +20,7 @@ pipeline {
                                           "files": [
                                           {
                                           "pattern": "target/*.war",
-                                          "buildNumber": "${5}"
+                                          "recursive"": "yes"
                                           "target": "pipeline"
                                           }
                                           ]
